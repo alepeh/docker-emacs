@@ -1,4 +1,4 @@
-ARG VERSION=latest
+ARG VERSION=19.04
 FROM ubuntu:$VERSION
 
 MAINTAINER JAremko <w3techplaygound@gmail.com>
@@ -44,8 +44,8 @@ RUN chown root /usr/local/sbin/asEnvUser \
 
 # Emacs
 RUN apt-get update && apt-get install software-properties-common \
-    && apt-add-repository ppa:kelleyk/emacs \
-    && apt-get update && apt-get install emacs26 \
+    && add-apt-repository universe \
+    && apt-get update && apt-get install emacs-lucid \
 # Cleanup
     && apt-get purge software-properties-common \
     && rm -rf /tmp/* /var/lib/apt/lists/* /root/.cache/*
